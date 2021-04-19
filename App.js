@@ -6,7 +6,6 @@ function App() {
   useEffect(() => {
     const runResize = () => setWidth(document.body.clientWidth);
     window.addEventListener('resize', runResize);
-    // :exploding_head:
   }, []);
   return (
     <div className="App">
