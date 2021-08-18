@@ -10,7 +10,12 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {width > 800 && <p>Desktop</p>}
+      {width > 800 && (
+        <>
+          <h2>Desktop</h2>
+          <p>{`Shrink the screen size to see the magic <======|`}</p>
+        </>
+      )}
       {width < 800 && (
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
