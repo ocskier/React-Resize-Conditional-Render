@@ -1,22 +1,26 @@
 import logo from './logo.svg';
 import { useState, useEffect } from 'react';
+
+import { useDebounceScreenWidth } from './utils/debounceScreenWidth';
+
 import './App.css';
 
 function App() {
   const [width, setWidth] = useState(document.body.clientWidth);
+  const debouncedWidth = useDebounceScreenWidth(width);
   useEffect(() => {
     const runResize = () => setWidth(document.body.clientWidth);
     window.addEventListener('resize', runResize);
   }, []);
   return (
     <div className="App">
-      {width > 800 && (
+      {debouncedWidth > 800 && (
         <>
           <h2>Desktop</h2>
           <p>{`Shrink the screen size to see the magic <======|`}</p>
         </>
       )}
-      {width < 800 && (
+      {debouncedWidth < 800 && (
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
