@@ -8,10 +8,12 @@ import './App.css';
 function App() {
   const [width, setWidth] = useState(document.body.clientWidth);
   const debouncedWidth = useDebounceScreenWidth(width);
+  
   useEffect(() => {
     const runResize = () => setWidth(document.body.clientWidth);
     window.addEventListener('resize', runResize);
   }, []);
+
   return (
     <div className="App">
       {debouncedWidth > 800 && (
